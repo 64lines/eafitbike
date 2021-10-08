@@ -1,0 +1,48 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon class="view_headline sidenav-button" (click)="isExpanded = !isExpanded" [ngClass]="{'rotated': isExpanded}">view_headline</mat-icon>
+        <span *ngIf="isExpanded">Menú</span>
+
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'bike'">
+        <mat-icon mat-list-icon >directions_bike</mat-icon>
+        <span *ngIf="isExpanded">Bikes</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'geolocation'">
+        <mat-icon mat-list-icon>place</mat-icon>
+        <span *ngIf="isExpanded">Geolocation</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'reservation'">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <span *ngIf="isExpanded">Reservation</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'login'">
+        <mat-icon mat-list-icon>supervisor_account</mat-icon>
+        <span *ngIf="isExpanded">Login</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="content">
+    <mat-toolbar>
+        <p>Bike EAFIT</p>
+      <div *ngIf="socialAuthServive.authState | async as socialUser">
+        <br>
+        <p>Wellcome {{socialUser.name}} to Bike EAFIT, your email is registred  {{socialUser.email}} <button mat-raised-button (click)="logout()">Logout</button> </p>
+      </div>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+</mat-sidenav-container>

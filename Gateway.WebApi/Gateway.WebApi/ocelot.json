@@ -1,0 +1,77 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/bike",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apibikes-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/bike",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "OPTIONS" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/bike/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apibikes-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/bike/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE", "OPTIONS" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/bike",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apigeolocation-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/geolocation",
+      "UpstreamHttpMethod": [ "GET", "OPTIONS" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/bike/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apigeolocation-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/geolocation/{id}",
+      "UpstreamHttpMethod": [ "GET", "OPTIONS" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reservation",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apireservations-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/reservation",
+      "UpstreamHttpMethod": [ "POST", "GET", "OPTIONS" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reservation/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apireservations-svc",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/reservation/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "OPTIONS" ]
+    }
+  ]
+
+}

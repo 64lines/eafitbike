@@ -1,0 +1,37 @@
+<h1 mat-dialog-title >{{ bike!=null ? 'Edit Bike' : 'New Bike' }}</h1>
+
+
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="nombre" > 
+    </mat-form-field>
+
+     <mat-form-field>
+        <mat-label>Mark</mat-label>
+        <input matInput [(ngModel)]="marca" > 
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="descripcion" > 
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Coordinate X</mat-label>
+        <input matInput [(ngModel)]="coordenadaX" > 
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Coordinate Y</mat-label>
+        <input matInput [(ngModel)]="coordenadaY" > 
+    </mat-form-field>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" 
+    (click)="bike!=null ? editBike() : addBike()">Save</button>
+    <button mat-raised-button (click)="close()">Cancel</button>
+</div>
