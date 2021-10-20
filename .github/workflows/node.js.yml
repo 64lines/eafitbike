@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm' 
+        cache-dependency-path: eafitbike/package-lock.json
     - run: |
         cd eafitbike/
         npm run test
