@@ -31,9 +31,8 @@ export class BikeComponent implements OnInit {
     private apiReservation: ApireservationService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    public socialAuthServive: SocialAuthService) {
-   
-}
+    public socialAuthServive: SocialAuthService) { 
+  }
 
 
   logout(): void {
