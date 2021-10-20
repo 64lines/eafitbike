@@ -24,14 +24,14 @@ export class BikeComponent implements OnInit {
   public lst: any;
   public columnas: string[] = ['id', 'name', 'mark', 'description', 'coordinateX', 'coordinateY', 'actions'];
   readonly widht: string = '300px';
-  
+
   constructor(
     private router: Router,
     private apiBike: ApibikeService,
     private apiReservation: ApireservationService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    public socialAuthServive: SocialAuthService) { 
+    public socialAuthServive: SocialAuthService) {
   }
 
 
@@ -42,15 +42,15 @@ export class BikeComponent implements OnInit {
   ngOnInit(): void {
     this.getBikes();
   }
-  
-  getBikes(){
-  this.apiBike.getBikes().subscribe( ResponseBike => {
-    console.log(ResponseBike);
-    this.lst = ResponseBike;
-  });
+
+  getBikes(): any {
+    this.apiBike.getBikes().subscribe( responseBike => {
+      console.log(responseBike);
+      this.lst = responseBike;
+    });
   }
 
-  openAdd(){
+  openAdd(): void {
     console.log('Geolocationrmación');
     const dialogRef = this.dialog.open(DialogBikeComponent, {
       width: this.widht
@@ -61,7 +61,7 @@ export class BikeComponent implements OnInit {
   }
 
 
-  openEdit(bike: Bike) {
+  openEdit(bike: Bike): void {
     const dialogRef = this.dialog.open(DialogBikeComponent, {
       width: this.widht,
       data: bike
@@ -71,7 +71,7 @@ export class BikeComponent implements OnInit {
     });
   }
 
-  delete(bike: Bike){
+  delete(bike: Bike): void {
     const dialogRef = this.dialog.open(DialogDeleteComponent, {
       width: this.widht,
     });
@@ -82,21 +82,18 @@ export class BikeComponent implements OnInit {
               duration: 2000
             });
             this.getBikes();
-            
-          
-        })
+        });
       }
     });
   }
 
-  reservation(bike: Bike){
+  reservation(bike: Bike): void{
     const dialogRef = this.dialog.open(DialogReservationComponent, {
       width: this.widht,
       data: bike
     });
-  dialogRef.afterClosed().subscribe(result => {
-    this.getBikes();
-  });
-}
-
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBikes();
+    });
+  }
 }

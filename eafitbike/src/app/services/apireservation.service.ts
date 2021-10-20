@@ -18,23 +18,21 @@ export class ApireservationService {
 
   // url: string = 'http://159.122.174.54:31949/apireservations/api/reservation';
   // url: string = 'http://apireservations-svc/api/reservation';
-  url: string = 'http://36.ae.7a9f.ip4.static.sl-reverse.com:31949/apigateway/reservation';
+  url = 'http://36.ae.7a9f.ip4.static.sl-reverse.com:31949/apigateway/reservation';
 
   constructor(
-    private _http: HttpClient
+    private http: HttpClient
   ) { }
 
   getReservetion(): Observable<Response>{
-    return this._http.get<Response>(this.url);
+    return this.http.get<Response>(this.url);
   }
 
   add(reservation: Reservation): Observable<Response> {
-    return this._http.post<Response>(this.url, reservation, httpOption);
+    return this.http.post<Response>(this.url, reservation, httpOption);
   }
 
   edit(reservation: Reservation): Observable<Response> {
-    return this._http.put<Response>(`${this.url}/${reservation.id}`, reservation, httpOption);
-  } 
-
-
+    return this.http.put<Response>(`${this.url}/${reservation.id}`, reservation, httpOption);
+  }
 }

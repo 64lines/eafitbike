@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
     return this.socialAuthService.authState.pipe(
       map((socialUser: SocialUser) => !!socialUser),
       tap((isLoggedIn: boolean) => {
-        if (!isLoggedIn) { 
+        if (!isLoggedIn) {
           this.router.navigate(['login']);
         }
       })

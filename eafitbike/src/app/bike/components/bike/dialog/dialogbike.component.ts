@@ -10,34 +10,43 @@ import { ApibikeService } from '../../../../services/apibike.service';
     templateUrl: 'dialogbike.component.html'
 })
 export class DialogBikeComponent {
-    public nombre: string = '';
-    public marca: string = ''; 
-    public descripcion: string = ''; 
-    public coordenadaX: number = 0;
-    public coordenadaY: number = 0;
+    public nombre = '';
+    public marca = '';
+    public descripcion = '';
+    public coordenadaX = 0;
+    public coordenadaY = 0;
 
 
-    constructor( 
+    constructor(
         public dialogRef: MatDialogRef<DialogBikeComponent>,
         public apiBike: ApibikeService,
         public snackBar: MatSnackBar,
-        @Inject(MAT_DIALOG_DATA) public bike: Bike     
+        @Inject(MAT_DIALOG_DATA) public bike: Bike
     ){
         if (this.bike !== null) {
             this.nombre = bike.name;
             this.marca = bike.mark;
             this.descripcion = bike.description;
-            this.coordenadaX = bike.coordinateX
-            this.coordenadaY = bike.coordinateY
+            this.coordenadaX = bike.coordinateX;
+            this.coordenadaY = bike.coordinateY;
          }
     }
 
-    close(){
+    close(): void {
         this.dialogRef.close();
     }
 
-    editBike(){
-        const bike: Bike = { name: this.nombre, id: this.bike.id, isActive: true, mark: this.marca, description: this.descripcion, coordinateX: this.coordenadaX, coordinateY: this.coordenadaY};
+    editBike(): void {
+        const bike: Bike = {
+            name: this.nombre,
+            id: this.bike.id,
+            isActive: true,
+            mark: this.marca,
+            description: this.descripcion,
+            coordinateX: this.coordenadaX,
+            coordinateY: this.coordenadaY
+        };
+
         this.apiBike.edit(bike).subscribe(response => {
                 this.dialogRef.close();
                 this.snackBar.open('Successfully edited bike', '', {
@@ -46,8 +55,16 @@ export class DialogBikeComponent {
         });
     }
 
-    addBike(){
-        const bike: Bike = { name: this.nombre, id: '', isActive: true, mark: this.marca, description: this.descripcion, coordinateX: this.coordenadaX, coordinateY: this.coordenadaY};
+    addBike(): void {
+        const bike: Bike = {
+            name: this.nombre,
+            id: '',
+            isActive: true,
+            mark: this.marca,
+            description: this.descripcion,
+            coordinateX: this.coordenadaX,
+            coordinateY: this.coordenadaY
+        };
         this.apiBike.add(bike).subscribe(response => {
                 this.dialogRef.close();
                 this.snackBar.open('Successfully inserted bike', '', {
@@ -55,4 +72,4 @@ export class DialogBikeComponent {
                 });
         });
     }
-} 
+}

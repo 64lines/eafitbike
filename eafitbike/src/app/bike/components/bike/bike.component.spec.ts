@@ -45,7 +45,7 @@ describe('BikeComponent', () => {
         },
         AuthGuardService
       ],
-      declarations: [ 
+      declarations: [
         BikeComponent
       ]
     })

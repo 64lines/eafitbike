@@ -11,35 +11,35 @@ import {GoogleLoginProvider, SocialAuthService} from 'angularx-social-login';
 })
 
 export class DialogReservationComponent {
-    public user: string = '';
-    public idBike: string = '';
-    public id: number = 0;
+    public user = '';
+    public idBike = '';
+    public id = 0;
 
     constructor(
-        public dialogRef: MatDialogRef<DialogReservationComponent>,       
+        public dialogRef: MatDialogRef<DialogReservationComponent>,
         public apiReservation: ApireservationService,
         public socialAuthServive: SocialAuthService,
         public snackBar: MatSnackBar,
-        @Inject(MAT_DIALOG_DATA) public bike: Bike     
+        @Inject(MAT_DIALOG_DATA) public bike: Bike
     ){
         if (this.bike !== null) {
             this.idBike = bike.id;
             this.socialAuthServive.authState.subscribe((user) => {
                 this.user = user.email;
-            });         
+            });
         }else{
             this.socialAuthServive.authState.subscribe((user) => {
                 this.user = user.email;
-            });   
+            });
         }
     }
 
-    close(){
+    close(): void {
         this.dialogRef.close();
     }
 
 
-    addReservation(){
+    addReservation(): void {
         const reservation: Reservation = { user: this.user, idBike: this.idBike, id: 0  };
         this.apiReservation.add(reservation).subscribe(response => {
                 this.dialogRef.close();
@@ -48,4 +48,4 @@ export class DialogReservationComponent {
                 });
         });
     }
-} 
+}

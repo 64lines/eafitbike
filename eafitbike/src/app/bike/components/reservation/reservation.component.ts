@@ -18,22 +18,21 @@ import { isNullOrUndefined } from 'util';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent implements OnInit {
-  public user: string = ''; 
-  public idBike: string = ''; 
-  public id: number = 0;
+  public user = '';
+  public idBike = '';
+  public id = 0;
 
   public lst: any;
   public columnas: string[] = ['id', 'user', 'idBike', 'startDate', 'endDate', 'actions'];
   readonly widht: string = '300px';
-  
+
   constructor(
     private router: Router,
     private apiBike: ApibikeService,
     private apiReservation: ApireservationService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    public socialAuthServive: SocialAuthService) {
-}
+    public socialAuthServive: SocialAuthService) {}
 
   logout(): void {
   this.socialAuthServive.signOut().then(() => this.router.navigate(['login']));
@@ -42,41 +41,38 @@ export class ReservationComponent implements OnInit {
   ngOnInit(): void {
     this.getReservetions();
   }
-  
-  getReservetions(){
-  this.apiReservation.getReservetion().subscribe( Response => {
-    console.log(Response);
-    this.lst = Response;
-  });
+
+  getReservetions(): void {
+    this.apiReservation.getReservetion().subscribe( Response => {
+      console.log(Response);
+      this.lst = Response;
+    });
   }
 
-  endreservation(reservation: Reservation){
+  endreservation(reservation: Reservation): void {
     this.apiReservation.edit(reservation).subscribe(response => {
-          this.snackBar.open('Reservation finalized successfully', '', {
-              duration: 2000
+      this.snackBar.open('Reservation finalized successfully', '', { duration: 2000 });
+      this.getReservetions();
     });
-    this.getReservetions();
-  });
-}
+  }
 
 
-  reservation(bike: Bike){
-  const dialogRef = this.dialog.open(DialogReservationComponent, {
-    width: this.widht,
-    data: bike
-  });
-dialogRef.afterClosed().subscribe(result => {
-  this.getReservetions();
-});
-}
+  reservation(bike: Bike): void {
+    const dialogRef = this.dialog.open(DialogReservationComponent, {
+      width: this.widht,
+      data: bike
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getReservetions();
+    });
+  }
 
-addReservation(){
-  const dialogRef = this.dialog.open(DialogReservationComponent, {
-    width: this.widht,
-  });
-dialogRef.afterClosed().subscribe(result => {
-  this.getReservetions();
-});
-}
-
+  addReservation(): void {
+    const dialogRef = this.dialog.open(DialogReservationComponent, {
+      width: this.widht,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getReservetions();
+    });
+  }
 }

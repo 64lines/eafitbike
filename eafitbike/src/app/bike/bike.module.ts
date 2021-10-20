@@ -26,7 +26,16 @@ import { DialogReservationComponent } from './components/common/reservation/dial
 
 
 @NgModule({
-  declarations: [WrapperComponent, BikeComponent, GeolocationComponent, ReservationComponent, LoginComponent, DialogBikeComponent, DialogDeleteComponent, DialogReservationComponent],
+  declarations: [
+    WrapperComponent,
+    BikeComponent,
+    GeolocationComponent,
+    ReservationComponent,
+    LoginComponent,
+    DialogBikeComponent,
+    DialogDeleteComponent,
+    DialogReservationComponent
+  ],
   imports: [
     CommonModule,
     BikeRoutingModule,
