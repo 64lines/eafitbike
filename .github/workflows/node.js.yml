@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  lint:
+  continuous-integration:
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,10 +29,10 @@ jobs:
       run: |
         cd eafitbike/
         npm i
-    - name: Run Linters
-      run: npm run lint
-    - name: Run Tests
-      run: npm run test
-    - name: Run Build
-      run: npm run build
+    - run: npm run lint
+      name: Lint
+    - run: npm run test
+      name: Test
+    - run: npm run build
+      name: Build
   
