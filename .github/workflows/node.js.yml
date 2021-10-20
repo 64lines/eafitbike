@@ -20,12 +20,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install Node Modules
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm' 
         cache-dependency-path: eafitbike/package-lock.json
+    - run: npm i
+      name: Installing Node Modules
+      working-directory: eafitbike/
     - run: npm run lint
       name: Running Linter
       working-directory: eafitbike/
