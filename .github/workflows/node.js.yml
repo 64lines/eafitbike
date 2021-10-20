@@ -26,13 +26,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm' 
         cache-dependency-path: eafitbike/package-lock.json
-      run: |
-        cd eafitbike/
-        npm i
+    - run: npm i
+      name: Installing dependencies
+      working-directory: eafitbike/
     - run: npm run lint
       name: Lint
+      working-directory: eafitbike/
     - run: npm run test
       name: Test
+      working-directory: eafitbike/
     - run: npm run build
       name: Build
+      working-directory: eafitbike/
   
