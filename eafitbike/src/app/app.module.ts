@@ -9,7 +9,6 @@ import {AuthGuardService} from './auth-guard.service';
 import {RouterModule} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 
-
 import { BikeComponent } from './bike/components/bike/bike.component';
 import { LoginComponent } from './bike/components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
