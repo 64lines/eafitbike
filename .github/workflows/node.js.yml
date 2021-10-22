@@ -44,6 +44,7 @@ jobs:
     steps:
     - run: npm i -g typescript
       working-directory: eafitbike/
+      uses: actions/setup-node@v2
     - uses: actions/checkout@v2
       with:
         projectBaseDir: eafitbike/src
