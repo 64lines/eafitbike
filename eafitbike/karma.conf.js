@@ -28,7 +28,7 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/eafit-bike'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
+        { type: 'lcovonly' },
         { type: 'text-summary' }
       ]
     },
