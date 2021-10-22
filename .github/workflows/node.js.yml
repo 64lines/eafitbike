@@ -20,6 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        projectBaseDir: eafitbike/src
+        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -38,27 +41,6 @@ jobs:
     - run: npm run build
       name: Running Build
       working-directory: eafitbike/
-  
-  sonarqube-analysis:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        
-    steps:
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm' 
-        cache-dependency-path: eafitbike/package-lock.json
-    - run: npm i -g typescript
-      working-directory: eafitbike/
-    - uses: actions/checkout@v2
-      with:
-        projectBaseDir: eafitbike/src
-        fetch-depth: 0
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
