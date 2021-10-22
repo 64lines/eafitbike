@@ -11,8 +11,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginComponent } from './components/login/login.component';
 import { DialogBikeComponent } from './components/bike/dialog/dialogbike.component';
-
-import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
