@@ -12,6 +12,7 @@ const httpOption = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApigeolocationService {
 
   // url: string = 'http://159.122.174.54:31949/apigeolocation/api/bike';
