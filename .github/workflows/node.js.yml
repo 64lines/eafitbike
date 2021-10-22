@@ -40,9 +40,6 @@ jobs:
     - run: npm run build
       name: Running Build
       working-directory: eafitbike/
-    - run: cat coverage/eafit-bike/lcov.info
-      name: Checking coverage file
-      working-directory: eafitbike/
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
