@@ -41,7 +41,7 @@ jobs:
       name: Running Build
       working-directory: eafitbike/
     - name: Fix code coverage paths
-      working-directory: ./coverage
+      working-directory: eafitbike/coverage
       run: |
         sed -i '' 's/src\//eafitbike\/src\//g' lcov.info
     - name: SonarQube Scan
