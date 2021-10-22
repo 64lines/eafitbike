@@ -40,6 +40,10 @@ jobs:
     - run: npm run build
       name: Running Build
       working-directory: eafitbike/
+    - name: Fix code coverage paths
+      working-directory: ./coverage
+      run: |
+        sed -i '' 's/src\//eafitbike\/src\//g' lcov.info
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
