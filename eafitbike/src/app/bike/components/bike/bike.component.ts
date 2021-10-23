@@ -10,9 +10,6 @@ import { Bike } from 'src/app/models/bike';
 import { DialogDeleteComponent } from '../common/delete/dialogdelete.component';
 import { DialogReservationComponent } from '../common/reservation/dialogreservation.component';
 import { ApireservationService } from 'src/app/services/apireservation.service';
-import { Reservation } from 'src/app/models/reservation';
-
-
 
 @Component({
   selector: 'app-bike',
