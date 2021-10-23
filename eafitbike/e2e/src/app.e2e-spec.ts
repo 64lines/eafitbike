@@ -1,4 +1,5 @@
 import { browser, logging } from 'protractor';
+import { timeout } from 'rxjs/operators';
 import { AppPage } from './app.po';
 
 describe('workspace-project App', () => {
@@ -8,9 +9,11 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
-    await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('eafit-bike app is running!');
+  it('the title should be EAFIT Bike', async () => {
+    await browser.get(browser.baseUrl);
+    const siteTitle = await browser.getTitle();
+    console.log('====================== Base Title', await browser.getTitle());
+    expect(siteTitle).toEqual('EAFIT Bike');
   });
 
   afterEach(async () => {

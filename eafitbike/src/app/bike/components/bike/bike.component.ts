@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import { ApibikeService } from 'src/app/services/apibike.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { ResponseBike } from '../../../models/responseBike';
 import { DialogBikeComponent } from './dialog/dialogbike.component';
 import { Bike } from 'src/app/models/bike';
 import { DialogDeleteComponent } from '../common/delete/dialogdelete.component';
