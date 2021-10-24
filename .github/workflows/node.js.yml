@@ -37,6 +37,9 @@ jobs:
     - run: npm run test
       name: Running Unit Tests
       working-directory: eafitbike/
+    - run: npm run e2e
+      name: Running BDD Tests
+      working-directory: eafitbike/
     - run: npm run build
       name: Running Build
       working-directory: eafitbike/
