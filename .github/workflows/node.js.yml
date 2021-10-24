@@ -36,21 +36,15 @@ jobs:
       working-directory: eafitbike/
     - name: Running Unit Tests
       working-directory: eafitbike/
-      run: | 
-      npm run test
-      sed -i 's/src\//eafitbike\/src\//g' lcov.info
+      run: npm run test
+      run: sed -i 's/src\//eafitbike\/src\//g' lcov.info
     - name: Running BDD Tests
       working-directory: eafitbike/
-      run: |
-      ./node_modules/protractor/bin/webdriver-manager update
-      npm run e2e
+      run: ./node_modules/protractor/bin/webdriver-manager update
+      run: npm run e2e
     - run: npm run build
       name: Running Build
       working-directory: eafitbike/
-    - name: Fix code coverage paths
-      working-directory: eafitbike/coverage
-      run: |
-        sed -i 's/src\//eafitbike\/src\//g' lcov.info
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
