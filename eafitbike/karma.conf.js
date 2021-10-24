@@ -30,7 +30,15 @@ module.exports = function (config) {
       reporters: [
         { type: 'lcovonly' },
         { type: 'text-summary' }
-      ]
+      ],
+      check: {
+        global: {
+          statements: 30,
+          branches: 0,
+          functions: 20,
+          lines: 30
+        }
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
