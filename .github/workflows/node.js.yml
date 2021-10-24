@@ -38,7 +38,7 @@ jobs:
       working-directory: eafitbike/
       run: |
         npm run test
-        sed -i 's/src\//eafitbike\/src\//g' lcov.info
+        sed -i 's/src\//eafitbike\/src\//g' coverage/lcov.info
     - name: Running BDD Tests
       working-directory: eafitbike/
       run: | 
