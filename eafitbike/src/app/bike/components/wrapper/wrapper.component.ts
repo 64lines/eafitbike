@@ -17,8 +17,8 @@ export class WrapperComponent implements OnInit {
   ) {}
 
   logout(): void {
-  this.socialAuthServive.signOut().then(() => this.router.navigate(['login']));
+    this.socialAuthServive.signOut().then(() => this.router.navigate(['login']));
   }
-  ngOnInit(): void {
-  }
+
+  ngOnInit(): void {} // eslint-disable-line @angular-eslint/no-empty-lifecycle-method
 }
